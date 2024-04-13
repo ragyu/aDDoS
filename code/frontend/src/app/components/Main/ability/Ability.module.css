@@ -1,0 +1,10 @@
+.ability {
+  display: flex;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+.description {
+  margin-left: 10%;
+  font-size: large;
+}
