@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 import re
 import pandas as pd
 import os.path
@@ -13,7 +16,7 @@ def parse_access_log( path ):
 
 #데이터프레임 만들기
 columns = [ 'time', 'request', 'status', 'bytes' ]
-df = pd.DataFrame( parse_access_log( 'access.log' ), columns=columns )
+df = pd.DataFrame( parse_access_log( 'access.log' ), columns=columns ) 
 #print( df )
 
 #시간을 보기쉽게 형식 변경
@@ -21,7 +24,7 @@ df.time = pd.to_datetime( df.time, format='%d/%b/%Y:%X', exact=False )
 print( df.head( 5 ) )
 
 #데이터프레임을 csv파일로 저장
-file = '.\\access_log.csv'
+file = '.\\access_log.csv' 
 if os.path.isfile( file ):
     os.remove( file )
-df.to_csv( 'access_log.csv', index=False )
+df.to_csv( 'access_log.csv', index=False ) 
