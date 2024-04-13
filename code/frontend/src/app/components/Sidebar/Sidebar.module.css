@@ -1,0 +1,43 @@
+.menuButton {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  top: 80px;
+  left: -250px;
+  height: 100%;
+  background-color: #223355;
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.sidebarLink {
+  padding: 25px;
+  color: white;
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 50px;
+  background-color: #223355;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.sidebarLink:hover {
+  background-color: RGB(102, 204, 255);
+}
+
+.sidebarOpen {
+  transform: translateX(250px);
+  transition: transform 0.5s ease-in-out;
+}
+
+.icon {
+  margin-right: 20px;
+}
