@@ -93,7 +93,7 @@
 }
 
 .formGroup span {
-    flex-basis: 12%;
+    flex-basis: 14%;
     text-align: right; 
 }
 
@@ -113,5 +113,5 @@
 }
 
 .formGroup select {
-    width: 17.5%;
+    width: 18%;
 }
