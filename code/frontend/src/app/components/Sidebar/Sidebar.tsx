@@ -5,8 +5,9 @@ import styles from './Sidebar.module.css';
 import Traffic from './contents/Traffic';
 import Log from './contents/Log';
 import MyInfo from './contents/MyInfo';
+import Fullpage from '../Fullpage/Fullpage';
 
-type ActiveComponent = 'Traffic' | 'Log' | 'MyInfo' | null;
+type ActiveComponent = 'Traffic' | 'Log' | 'MyInfo'; //| null;
 
 interface Button {
   id: ActiveComponent;
@@ -21,7 +22,8 @@ const buttons: Button[] = [
 
 const Sidebar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [activeComponent, setActiveComponent] = useState<ActiveComponent>(null);
+  const [activeComponent, setActiveComponent] =
+    useState<ActiveComponent>('Traffic');
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -40,7 +42,7 @@ const Sidebar: FC = () => {
       case 'MyInfo':
         return <MyInfo />;
       default:
-        return null; // 기본값이거나 선택하지 않았을 때는 아무것도 렌더링하지 않습니다.
+        return <Traffic />; // 기본값이거나 선택하지 않았을 때는 아무것도 렌더링하지 않습니다.
     }
   }, [activeComponent]);
 

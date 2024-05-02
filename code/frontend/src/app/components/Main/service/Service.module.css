@@ -1,46 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap');
 
-.topText {
-  margin: 150px 0;
-  /* 맨 왼쪽 위 문구의 위아래 간격 */
-  padding-left: 90px;
-  /* 문구의 왼쪽 패딩 */
-  font-family: 'Noto Sans KR', sans-serif;
-  /* 문구의 폰트 */
-  font-weight: 700;
-  /* 폰트의 두께 */
-  font-size: 24px;
-  /* 폰트 크기 */
-}
-
-.serviceintro {
-  padding: 20px;
-  background-color: #fcfcfc;
-  /* 배경색은 원하는 대로 조정해주세요. */
-  border-radius: 8px;
-  /* 모서리 둥글기 */
-  margin: 20px auto;
-  /* 위아래 마진 */
-  max-width: 600px;
-  /* 최대 너비를 설정하여 너무 넓게 퍼지지 않도록 조절 */
+.explanation {
   text-align: center;
-  /* 텍스트를 가운데로 정렬 */
   font-family: 'Black Han Sans', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
-.serviceintro h2 {
-  color: #5f639b;
-  /* 제목 색상 */
-  margin-bottom: 16px;
-  /* 제목과 내용 사이의 간격 */
-  font-size: 40px;
-  /* 제목의 폰트 크기를 24px로 조정 */
+.text {
+  opacity: 0; /* 초기 상태를 투명하게 설정 */
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
-.serviceintro p {
-  color: #000000;
-  /* 본문 색상 */
-  line-height: 1.6;
-  /* 줄 간격 */
+.text.animate {
+  animation: fadeInLeft 1.5s forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 각 요소에 대해 개별적인 시간차 적용 */
+.text.two {
+  animation-delay: 0.2s;
+}
+.text.three {
+  animation-delay: 0.4s;
+}
+
+@media (max-width: 800px) {
+  .explanation {
+    font-size: 25px; /* 작은 화면에서의 글씨 크기 */
+  }
+}
+
+@media (max-width: 700px) {
+  .explanation {
+    font-size: 20px; /* 작은 화면에서의 글씨 크기 */
+  }
+}
+
+@media (max-width: 550px) {
+  .text {
+    font-size: 17px; /* 더 작은 화면에서의 글씨 크기 */
+  }
 }

@@ -3,11 +3,13 @@ import styles from './page.module.css';
 import Service from './components/Main/service/Service';
 import Ability from './components/Main/ability/Ability';
 import YoutubeVideo from './components/Main/youtube/Youtube';
+import Fullpage from './components/Fullpage/Fullpage';
 
 export default function Home() {
   return (
     <div>
-      <Service />
+      <Fullpage />
+      {/* <Service />
       <div className={styles.feature}>
         <div className={styles.box}>
           <h4 className={styles.title}>주요 기능</h4>
@@ -28,7 +30,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo>
+      <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo> */}
     </div>
   );
 }

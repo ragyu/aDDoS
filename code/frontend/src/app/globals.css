@@ -10,8 +10,10 @@
 
 body {
   margin: 0;
+  padding: 0;
+  overflow: auto;
 }
 
 main {
-  margin-top: 160px;
+  margin-top: 80px;
 }

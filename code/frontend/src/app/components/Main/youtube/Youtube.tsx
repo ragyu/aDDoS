@@ -9,22 +9,24 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({ videoId }) => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
   return (
-    <div className="video-responsive">
+    <div className={styles.video}>
       사용방법
       <br />
       <br />
-      <iframe
-        width="840"
-        height="480"
-        src={embedUrl}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Embedded youtube"
-      ></iframe>
-      <div className={styles.event}>
-        <a href="/more-info">사용방법 더보기</a>
+      <div className={styles.player}>
+        <iframe
+          width="560"
+          height="315"
+          src={embedUrl}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded youtube"
+        ></iframe>
       </div>
+      <Link href="/more-info" className={styles.link}>
+        사용방법 더보기
+      </Link>
     </div>
   );
 };
