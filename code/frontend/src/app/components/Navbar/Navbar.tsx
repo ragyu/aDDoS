@@ -50,7 +50,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/contact" className={styles.link}>
                   문의하기
                 </Link>
               </li>
