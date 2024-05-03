@@ -45,7 +45,7 @@ export default function Navbar() {
           <div className={styles.dropdownMenu}>
             <ul>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/faq" className={styles.link}>
                   FAQ
                 </Link>
               </li>
