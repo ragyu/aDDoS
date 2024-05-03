@@ -63,7 +63,7 @@ export default function Navbar() {
           <div className={styles.dropdownMenu}>
             <ul>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/notification" className={styles.link}>
                   공지사항
                 </Link>
               </li>

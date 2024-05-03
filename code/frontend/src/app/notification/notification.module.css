@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=East+Sea+Dokdo&family=IBM+Plex+Sans+KR&family=Jersey+10&family=Jersey+10+Charted&display=swap');
+
+.notiWrap {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.noticeText {
+    font-family: "IBM Plex Sans KR", sans-serif;
+    text-align: center;
+    margin-top: 10%;
+    padding-bottom: 50px;
+    font-size: 40px;
+    color: blue;
+    
+}
+.infoRow {
+    display: flex; 
+    justify-content: center;
+    font-family: "IBM Plex Sans KR", sans-serif;
+    border-top: 1px solid #5c52b9;
+    border-bottom: 1px solid #5c52b9;
+  }
+  
+  .infoItem {
+    margin: 16px 0;
+    text-align: center; 
+    font-family: "IBM Plex Sans KR", sans-serif;
+  }
+ 
+  .infoItem:first-child {
+    width: 10%;
+  }
+
+  .infoItem:nth-child(2) {
+    width: 50%;
+  }
+
+  .infoItem:nth-child(3) {
+    width: 20%;
+  }
+
+  .infoItem:last-child {
+    width: 20%;
+  }
+
+  .infoBottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    border-bottom: 1px  solid #bdbdc2;
+  }
+
+  .infoData{
+    font-family: "IBM Plex Sans KR", sans-serif;
+    text-align: center;
+    margin: 12px 0;
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+  }
+  .infoData:first-child {
+    width: 10%;
+  }
+
+  .infoData:nth-child(2) {
+    width: 50%;
+  }
+
+  .infoData:nth-child(2) {
+    width: 50%; 
+  }
+  
+  .infoData:nth-child(3),
+  .infoData:last-child {
+    width: 20%; 
+  }
