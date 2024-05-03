@@ -5,7 +5,20 @@
 }
 
 .qaWrap {
-    border: 1px solid red;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+    margin: 50px;
+}
+
+.firstQa, .secondQa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.secondQa {
+    margin-top: 100px;
+}
+
+.firstQa b, .secondQa b {
+    font-size: 40px;
 }

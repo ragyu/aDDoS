@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  background: url('../../../../public/assets/header.webp');
-  background-size: contain;
+  background: url('../../../../public/assets/header.png');
+  background-size: cover;
   height: 100vh;
 }
 
