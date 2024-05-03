@@ -110,6 +110,7 @@
     border: 2px solid #ADAAAA;
     border-radius: 6px;
     padding: 8px 50px;
+    text-align: center;
 }
 
 .formGroup select {

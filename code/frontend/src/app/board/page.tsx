@@ -53,11 +53,11 @@ const Board = () => {
             <ul>
                 {posts.map((post) => (
                     <li key={post.id} className={styles.postItem}>
-                        <span>{post.id} </span>
-                        <span>{post.title}</span>
-                        <span>{post.author} </span>
-                        <span>{post.createdAt} </span>
-                        <span>좋아요❤️: {post.likes}</span>
+                        <span className={styles.idRatio}>{post.id} </span>
+                        <span className={styles.titleRatio}>{post.title}</span>
+                        <span className={styles.authorRatio}>{post.author} </span>
+                        <span className={styles.createdAtRatio}>{post.createdAt} </span>
+                        <span className={styles.likesRatio}>좋아요❤️: {post.likes}</span>
                     </li>
                 ))}
             </ul>

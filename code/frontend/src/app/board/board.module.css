@@ -44,3 +44,20 @@
     background-color: #6ad9e7;
     transform: scale(0.98);
 }
+
+.idRatio {
+    width: 10%;
+}
+
+.titleRatio {
+    width: 40%;
+}
+.authorRatio {
+    width: 16%;
+}
+.createdAtRatio {
+    width: 30%;
+}
+.likesRatio {
+    width: 30%;
+}
