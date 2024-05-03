@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../board/board.module.css';
 
-// Post 인터페이스 정의
 interface Post {
     id: number;
     title: string;
@@ -10,7 +9,6 @@ interface Post {
     likes: number;
 }
 
-// 가상의 게시글 데이터
 const posts: Post[] = [
     {
         id: 1,
@@ -46,10 +44,9 @@ const posts: Post[] = [
         createdAt: '2024-05-01',
         likes: 90,
     },
-    // 추가 게시글 데이터...
 ];
 
-const Board: React.FC = () => {
+const Board = () => {
     return (
         <div className={styles.board}>
             <h1>자유게시판</h1>
