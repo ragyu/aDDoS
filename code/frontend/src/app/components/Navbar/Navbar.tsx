@@ -73,7 +73,7 @@ export default function Navbar() {
                 </Link>
               </li> */}
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/board" className={styles.link}>
                   자유게시판
                 </Link>
               </li>
