@@ -5,6 +5,7 @@ import ReactFullpage, { fullpageOptions } from '@fullpage/react-fullpage';
 import Service from '../Main/service/Service';
 import Ability from '../Main/ability/Ability';
 import YoutubeVideo from '../Main/youtube/Youtube';
+import Footer from '../Footer/Footer';
 
 interface Section {
   id?: number;
@@ -84,14 +85,13 @@ const Fullpage = () => {
         </div>
       ),
     },
-
-    {
-      content: (
-        <div className={styles.section6}>
-          <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo>
-        </div>
-      ),
-    },
+    // {
+    //   content: (
+    //     <div className={styles.section6}>
+    //       <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo>
+    //     </div>
+    //   ),
+    // },
   ]);
 
   const onLeave = (origin: any, destination: any, direction: any) => {
@@ -176,7 +176,12 @@ const Fullpage = () => {
           <ReactFullpage.Wrapper>
             {fullpages.map(({ content }) => (
               <div className="section">{content}</div>
-            ))}
+            ))}{' '}
+            <div className="section fp-auto-height">
+              <div className={styles.section6}>
+                <Footer />
+              </div>
+            </div>
           </ReactFullpage.Wrapper>
         )}
       />
