@@ -27,7 +27,6 @@
 .section4 {
   background: linear-gradient(to bottom right, #0099ff, #ffffff);
   background-size: contain;
-
   height: 100vh;
   display: flex;
 }
@@ -40,9 +39,7 @@
 }
 
 .section6 {
-  background: linear-gradient(to bottom right, #99ccff, #ffffff);
-  background-size: contain;
-  height: 100vh;
+  height: 160px;
 }
 
 .title {
