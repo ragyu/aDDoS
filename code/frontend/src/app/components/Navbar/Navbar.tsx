@@ -51,12 +51,12 @@ export default function Navbar() {
           <div className={styles.dropdownMenu}>
             <ul>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/faq" className={styles.link}>
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/contact" className={styles.link}>
                   문의하기
                 </Link>
               </li>
@@ -79,7 +79,7 @@ export default function Navbar() {
                 </Link>
               </li> */}
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/board" className={styles.link}>
                   자유게시판
                 </Link>
               </li>
