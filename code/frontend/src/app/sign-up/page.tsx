@@ -50,7 +50,7 @@ function Signup() {
             type="password"
             id="password"
             name="password"
-            placeholder="비밀번호"
+            placeholder="비밀번호 입력"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
