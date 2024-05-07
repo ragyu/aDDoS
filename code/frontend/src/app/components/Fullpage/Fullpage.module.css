@@ -43,7 +43,7 @@
 }
 
 .title {
-  margin-top: 18%;
+  margin-top: 300px;
   font-size: 10em;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px #000000;
@@ -52,4 +52,10 @@
 .intro {
   font-size: 20px;
   text-shadow: 2px 2px 4px #000000;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 7em;
+  }
 }
