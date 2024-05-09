@@ -8,23 +8,38 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <h1 className={styles.logo}>
         <Link href="/">
-          <Image src="/assets/DDoS.jpg" alt="로고" width={80} height={80} />
+          <Image src="/assets/logo.png" alt="로고" width={80} height={80} />
         </Link>
       </h1>
 
+      {/* <div onClick={() => setIsOpen(!isOpen)} className={styles.menu}>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+      </div> */}
+
       <ul className={styles.liInline}>
         <li className={styles.dropdownWrapper}>
-          자료실
+          소개
           <div className={styles.dropdownMenu}>
             <ul>
+              {/* <li>
+                <Link href="#" className={styles.link}>
+                  팀 소개
+                </Link>
+              </li> */}
               <li>
                 <Link href="#" className={styles.link}>
-                  다운로드
+                  프로젝트
                 </Link>
               </li>
               <li>
-                <Link href="#" className={styles.link}>
-                  툴사용법
+                <Link
+                  href="https://github.com/JBU-aDDos/aDDoS"
+                  target="blank"
+                  className={styles.link}
+                >
+                  깃허브
                 </Link>
               </li>
             </ul>
@@ -36,12 +51,12 @@ export default function Navbar() {
           <div className={styles.dropdownMenu}>
             <ul>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/faq" className={styles.link}>
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/contact" className={styles.link}>
                   문의하기
                 </Link>
               </li>
@@ -58,13 +73,13 @@ export default function Navbar() {
                   공지사항
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="#" className={styles.link}>
                   보안뉴스
                 </Link>
-              </li>
+              </li> */}
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="/board" className={styles.link}>
                   자유게시판
                 </Link>
               </li>
@@ -78,11 +93,11 @@ export default function Navbar() {
         </button> */}
       </ul>
       <h3 className={styles.user}>
-        <Link href="#" className={styles.p}>
+        <Link href="/sign-in" className={styles.sign}>
           로그인
         </Link>
         <b className={styles.b}>/</b>
-        <Link href="/mypage" className={styles.p}>
+        <Link href="/sign-up" className={styles.sign}>
           회원가입
         </Link>
       </h3>
