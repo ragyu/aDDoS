@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'rest_framework_swagger',
-    
-    "user",
+    'user',   
+    'accounts',
     
 ]
 
@@ -80,12 +80,20 @@ WSGI_APPLICATION = "addos.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'account',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'localhost',
+            'port': 27017,
+            'username': 'mongo',
+            'password': 'password123',
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1',
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
