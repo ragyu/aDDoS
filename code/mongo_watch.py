@@ -1,13 +1,15 @@
 from pymongo import MongoClient
 import json
 
-# MongoDB 클라이언트 설정
-client = MongoClient('mongodb://test:1234@localhost:27017/network_catcher_database')
+# MongoDB Atlas 클라이언트 설정
+client = MongoClient('mongodb+srv://test:1234@cluster0.hqxzgtw.mongodb.net/network_catcher_database?retryWrites=true&w=majority&appName=Cluster0', tls=True, tlsAllowInvalidCertificates=True)
+
+# 데이터베이스와 컬렉션 설정
 db = client['network_catcher_database']
 collection = db['traffic']
 
 # Change Stream 설정
-with collection.watch() as stream:
+with client['network_catcher_database']['traffic'].watch() as stream:
     for change in stream:
         if 'operationType' in change:  # 연산 유형이 있는지 확인
             operation_type = change['operationType']
