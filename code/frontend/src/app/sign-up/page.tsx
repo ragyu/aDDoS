@@ -9,6 +9,7 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [name, setName] = useState('');
   const [passwordMismatch, setPasswordMismatch] = useState(false);
+  const [passwordInvalid, setPasswordInvalid] = useState(false);
 
   useEffect(() => {
     // 비밀번호와 비밀번호 확인이 동일한지 검사
@@ -17,12 +18,26 @@ function Signup() {
     } else {
       setPasswordMismatch(false);
     }
+
+    if (password) {
+      const isValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+      setPasswordInvalid(!isValid);
+    } else {
+      setPasswordInvalid(false);
+    }
   }, [password, confirmPassword]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (passwordMismatch) {
-      e.preventDefault(); // 비밀번호가 일치하지 않으면 form submit을 방지
-      alert('비밀번호가 일치하지 않습니다.'); // 사용자에게 알림
+      alert('비밀번호가 일치하지 않습니다.');
+      e.preventDefault();
+      return;
+    } else if (passwordInvalid) {
+      alert(
+        '비밀번호는 최소 8자 이상이어야 하며, 숫자와 영문자를 포함해야 합니다.'
+      );
+      e.preventDefault();
+      return;
     }
   };
 
@@ -40,12 +55,23 @@ function Signup() {
             placeholder="exemple@email.com"
             required
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              console.log('이메일:', e.target.value);
+            }}
           />
         </div>
         {/* 비밀번호 입력 필드 */}
         <div className={styles.inputGroup}>
-          <label htmlFor="password">비밀번호</label>
+          <div className={styles.verify}>
+            <label htmlFor="password">비밀번호</label>
+            {passwordInvalid && (
+              <p className={styles.invalid}>
+                비밀번호는 최소 8자 이상이어야 하며, 숫자와 영문자를 포함해야
+                합니다.
+              </p>
+            )}
+          </div>
           <input
             type="password"
             id="password"
@@ -58,10 +84,10 @@ function Signup() {
         </div>
         {/* 비밀번호 확인 필드 */}
         <div className={styles.inputGroup}>
-          <div className={styles.match}>
-            <label htmlFor="confirmPassword">비밀번호 확인</label>{' '}
+          <div className={styles.verify}>
+            <label htmlFor="confirmPassword">비밀번호 확인</label>
             {passwordMismatch && (
-              <p className={styles.p}>비밀번호가 일치하지 않습니다.</p>
+              <p className={styles.mismatch}>비밀번호가 일치하지 않습니다.</p>
             )}
           </div>
           <input
@@ -84,7 +110,10 @@ function Signup() {
             placeholder="이름을 입력해주세요"
             required
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              console.log('이름:', e.target.value);
+            }}
           />
         </div>
         <button type="submit" className={styles.submitButton}>
