@@ -1,0 +1,15 @@
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin: auto;
+}
+.member {
+  margin: auto;
+  padding: 30px 50px;
+}
+@media (max-width: 1000px) {
+  .team {
+    width: 70%;
+  }
+}
