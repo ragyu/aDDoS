@@ -39,9 +39,8 @@
 }
 
 @media (max-width: 900px) {
-  /* 화면 넓이가 600픽셀 이하일 때 적용할 스타일 */
   .ability {
-    flex-direction: column; /* 세로 정렬로 변경 */
+    flex-direction: column;
     text-align: center;
     justify-content: center;
     width: 70%;
