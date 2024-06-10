@@ -1,24 +1,12 @@
 .imageLayout {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-.qaWrap {
-    width: 90%;
-    margin: 0 auto;
-    margin: 50px;
-}
-
-.firstQa, .secondQa {
-    display: flex;
-    justify-content: space-around;
-}
-
-.secondQa {
-    margin-top: 100px;
-}
-
-.firstQa b, .secondQa b {
-    font-size: 40px;
+.qna {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }

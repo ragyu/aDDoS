@@ -8,7 +8,13 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <h1 className={styles.logo}>
         <Link href="/">
-          <Image src="/assets/logo.png" alt="로고" width={80} height={80} />
+          <Image
+            src="/assets/logo.png"
+            alt="로고"
+            width={80}
+            height={80}
+            priority
+          />
         </Link>
       </h1>
 
@@ -23,16 +29,16 @@ export default function Navbar() {
           소개
           <div className={styles.dropdownMenu}>
             <ul>
-              {/* <li>
-                <Link href="#" className={styles.link}>
-                  팀 소개
-                </Link>
-              </li> */}
               <li>
+                <Link href="team" className={styles.link}>
+                  팀원 소개
+                </Link>
+              </li>
+              {/* <li>
                 <Link href="#" className={styles.link}>
                   프로젝트
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="https://github.com/JBU-aDDos/aDDoS"
@@ -69,7 +75,7 @@ export default function Navbar() {
           <div className={styles.dropdownMenu}>
             <ul>
               <li>
-                <Link href="#" className={styles.link}>
+                <Link href="notice" className={styles.link}>
                   공지사항
                 </Link>
               </li>

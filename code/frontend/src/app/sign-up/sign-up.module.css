@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 91vh;
-  background-color: #f0f8ff; /* 아주 연한 파란색 배경 */
+  height: 100vh;
+  background-color: #f0f8ff;
 }
 
 .form {
@@ -18,7 +18,7 @@
 }
 
 .title {
-  color: #007bff; /* 밝은 파란색 */
+  color: #007bff;
   margin: 50px;
 }
 
@@ -40,17 +40,25 @@
   color: #aaa;
 }
 
-.inputGroup p {
+.verify {
+  display: flex;
+  position: relative;
+}
+
+.invalid {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  left: 67px;
+  bottom: -8px;
+}
+
+.mismatch {
   color: red;
   font-size: 10px;
   position: absolute;
   left: 102px;
   bottom: -1px;
-}
-
-.match {
-  display: flex;
-  position: relative;
 }
 
 .submitButton {

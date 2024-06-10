@@ -32,9 +32,13 @@ function Signin() {
             이메일 기억하기
           </label>
         </div>
-        <button type="submit" className={styles.submitButton}>
-          로그인
-        </button>
+
+        <Link href="/mypage">
+          <button type="submit" className={styles.submitButton}>
+            로그인
+          </button>
+        </Link>
+
         {/* 회원가입 링크 */}
         <div className={styles.signupLink}>
           {/* <Link href="/forgot-password" className={styles.sign}>
