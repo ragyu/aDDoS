@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import json
 
 # MongoDB Atlas 클라이언트 설정
-client = MongoClient('mongodb+srv://test:1234@cluster0.hqxzgtw.mongodb.net/network_catcher_database?retryWrites=true&w=majority&appName=Cluster0', tls=True, tlsAllowInvalidCertificates=True)
+client = MongoClient('mongodb+srv://(userID):(UserPW)@(mongoAtlasURI)', tls=True, tlsAllowInvalidCertificates=True)
 
 # 데이터베이스와 컬렉션 설정
 db = client['network_catcher_database']
