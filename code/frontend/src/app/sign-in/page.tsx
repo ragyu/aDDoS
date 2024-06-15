@@ -2,29 +2,52 @@
 import { useState } from 'react';
 import styles from './sign-in.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-function Signin() {
+interface User {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+}
+
+function Signin({
+  onLogin = (user: User) => { console.log('Logged in user:', user); }
+}: {
+  onLogin?: (user: User) => void
+}) {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 추가
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       const response = await fetch('http://localhost:3001/users');
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
       const users = await response.json();
+      console.log('Fetched users:', users); // 디버깅을 위한 로그
+
       const user = users.find((user: { email: string; password: string }) => user.email === email && user.password === password);
 
       if (user) {
-        // 로그인 성공
+        console.log('User found:', user); // 디버깅을 위한 로그
+        onLogin(user);
         alert('로그인에 성공했습니다.');
-        window.location.href = '/';
+        setIsLoggedIn(true); // 로그인 상태 변경
+        setTimeout(() => {
+          router.push('/');
+        }, 1000); // 1초 후 페이지 이동
       } else {
-        // 로그인 실패
         setError('이메일 또는 비밀번호가 잘못되었습니다.');
       }
     } catch (error) {
+      console.error('Fetch error:', error); // 디버깅을 위한 로그
       setError('네트워크 오류가 발생했습니다.');
     }
   };
@@ -70,13 +93,19 @@ function Signin() {
 
         {error && <p className={styles.error}>{error}</p>}
 
-        {/* 회원가입 링크 */}
-        <div className={styles.signupLink}>
-          아이디가 없으신가요?{' '}
-          <Link href="/sign-up" className={styles.sign}>
-            회원가입
+        {/* 로그인 상태에 따라 버튼 텍스트 변경 */}
+        {isLoggedIn ? (
+          <Link href="/my-page" className={styles.sign}>
+            마이페이지
           </Link>
-        </div>
+        ) : (
+          <div className={styles.signupLink}>
+            아이디가 없으신가요?{' '}
+            <Link href="/sign-up" className={styles.sign}>
+              회원가입
+            </Link>
+          </div>
+        )}
       </form>
     </div>
   );
