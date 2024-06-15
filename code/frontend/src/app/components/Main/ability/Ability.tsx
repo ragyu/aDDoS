@@ -10,7 +10,6 @@ interface AbilityProps {
 
 const Ability = ({ src, alt, description }: AbilityProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  // 여기에서 useRef에 HTMLDivElement 타입을 명시합니다.
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

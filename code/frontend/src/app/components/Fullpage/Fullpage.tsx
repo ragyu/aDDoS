@@ -4,22 +4,14 @@ import styles from './Fullpage.module.css';
 import ReactFullpage, { fullpageOptions } from '@fullpage/react-fullpage';
 import Service from '../Main/service/Service';
 import Ability from '../Main/ability/Ability';
-import YoutubeVideo from '../Main/youtube/Youtube';
+import Footer from '../Footer/Footer';
 
 interface Section {
   id?: number;
   content: React.ReactNode;
 }
 
-const originalColors = [
-  '#ff5f45',
-  '#0798ec',
-  '#fc6c7c',
-  '#435b71',
-  'orange',
-  'purple',
-  'yellow',
-];
+const originalColors = ['#ff5f45', '#0798ec'];
 
 type Credits = {
   enabled?: boolean;
@@ -55,8 +47,8 @@ const Fullpage = () => {
       content: (
         <div className={styles.section3}>
           <Ability
-            src="/assets/hifive.png"
-            alt="hifive img"
+            src="/assets/ab1.png"
+            alt="ab1 img"
             description="DDOS공격 패턴을 식별하고, 새로운 공격 유형에도 효과적으로 대응"
           />
         </div>
@@ -66,8 +58,8 @@ const Fullpage = () => {
       content: (
         <div className={styles.section4}>
           <Ability
-            src="/assets/pic.png"
-            alt="pic img"
+            src="/assets/ab2.png"
+            alt="ab2 img"
             description="공격이 감지되면 사용자에게 SNS로 알림"
           />
         </div>
@@ -77,21 +69,20 @@ const Fullpage = () => {
       content: (
         <div className={styles.section5}>
           <Ability
-            src="/assets/pic2.png"
-            alt="pic2 img"
+            src="/assets/ab3.png"
+            alt="ab3 img"
             description="공격 시도와 시스템 반응에 대한 상세한 로그를 제공"
           />
         </div>
       ),
     },
-
-    {
-      content: (
-        <div className={styles.section6}>
-          <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo>
-        </div>
-      ),
-    },
+    // {
+    //   content: (
+    //     <div className={styles.section6}>
+    //       <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo>
+    //     </div>
+    //   ),
+    // },
   ]);
 
   const onLeave = (origin: any, destination: any, direction: any) => {
@@ -176,7 +167,12 @@ const Fullpage = () => {
           <ReactFullpage.Wrapper>
             {fullpages.map(({ content }) => (
               <div className="section">{content}</div>
-            ))}
+            ))}{' '}
+            <div className="section fp-auto-height">
+              <div className={styles.section6}>
+                <Footer />
+              </div>
+            </div>
           </ReactFullpage.Wrapper>
         )}
       />

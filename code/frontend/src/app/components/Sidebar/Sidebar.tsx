@@ -1,13 +1,11 @@
 'use client';
 
-import React, { useState, FC, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import styles from './Sidebar.module.css';
 import Traffic from './contents/Traffic';
-import Log from './contents/Log';
-import MyInfo from './contents/MyInfo';
-import Fullpage from '../Fullpage/Fullpage';
+import Myinfo from './contents/Myinfo';
 
-type ActiveComponent = 'Traffic' | 'Log' | 'MyInfo'; //| null;
+type ActiveComponent = 'Traffic' | 'Myinfo'; //| null;
 
 interface Button {
   id: ActiveComponent;
@@ -16,14 +14,13 @@ interface Button {
 
 const buttons: Button[] = [
   { id: 'Traffic', label: '트래픽' },
-  { id: 'Log', label: '로그' },
-  { id: 'MyInfo', label: '내정보' },
+  { id: 'Myinfo', label: '내정보' },
 ];
 
-const Sidebar: FC = () => {
+export default function Sidebar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeComponent, setActiveComponent] =
-    useState<ActiveComponent>('Traffic');
+    useState<ActiveComponent>('Myinfo');
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -37,12 +34,10 @@ const Sidebar: FC = () => {
     switch (activeComponent) {
       case 'Traffic':
         return <Traffic />;
-      case 'Log':
-        return <Log />;
-      case 'MyInfo':
-        return <MyInfo />;
+      case 'Myinfo':
+        return <Myinfo />;
       default:
-        return <Traffic />; // 기본값이거나 선택하지 않았을 때는 아무것도 렌더링하지 않습니다.
+        return <Myinfo />; // 기본값이거나 선택하지 않았을 때는 아무것도 렌더링하지 않습니다.
     }
   }, [activeComponent]);
 
@@ -129,6 +124,4 @@ const Sidebar: FC = () => {
       {renderComponent}
     </div>
   );
-};
-
-export default Sidebar;
+}
