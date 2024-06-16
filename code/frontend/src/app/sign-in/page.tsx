@@ -39,7 +39,8 @@ function Signin({
         console.log('User found:', user); // 디버깅을 위한 로그
         onLogin(user);
         alert('로그인에 성공했습니다.');
-        setIsLoggedIn(true); // 로그인 상태 변경
+        localStorage.setItem('user', JSON.stringify(user)); // 로컬스토리지에 사용자 정보 저장
+        
         setTimeout(() => {
           router.push('/');
         }, 1000); // 1초 후 페이지 이동

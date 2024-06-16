@@ -1,9 +1,45 @@
+'use client'
+
 import styles from './Navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname, useRouter} from 'next/navigation';
+import { useEffect, useState } from 'react';
 // import { FaSearch } from 'react-icons/fa';
 
+interface User {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+}
+
 export default function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const pathname = usePathname();
+  const push = useRouter().push;
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+      setIsLoggedIn(true);
+      if (pathname === '/') {
+        push('/');
+      }
+    }
+  }, [pathname, push]);
+  
+
+  const handleLogout = () => {
+    if (user)
+    localStorage.removeItem('user');
+    setUser(null);
+    setIsLoggedIn(false);
+    push('/sign-in');
+  };
+  
   return (
     <nav className={styles.navbar}>
       <h1 className={styles.logo}>
@@ -98,7 +134,20 @@ export default function Navbar() {
           <FaSearch size={26} />
         </button> */}
       </ul>
+      
       <h3 className={styles.user}>
+      {isLoggedIn ? (
+          <>
+            <Link href="/my-page" className={styles.sign}>
+              마이페이지
+            </Link>
+            <b className={styles.b}>/</b>
+            <button onClick={handleLogout} className={styles.sign} style={{ background: 'none', border: 'none', cursor: 'pointer',fontFamily:'Stylish',fontSize:"18px",fontWeight:'1000'}}>
+              로그아웃
+            </button>
+          </>
+        ) : (
+          <>
         <Link href="/sign-in" className={styles.sign}>
           로그인
         </Link>
@@ -106,7 +155,10 @@ export default function Navbar() {
         <Link href="/sign-up" className={styles.sign}>
           회원가입
         </Link>
+        </>
+        )}
       </h3>
-    </nav>
+      </nav>
   );
+  
 }
