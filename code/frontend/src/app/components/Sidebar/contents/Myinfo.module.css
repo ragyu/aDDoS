@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  background-color: #bcd4e6;
+  height: 800px;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.settingsIcon {
+  cursor: pointer;
+}
+
+.avatarContainer {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar {
+  width: auto;
+  height: 100%;
+}
+
+.changeImageButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #6285de;
+  color: white;
+  cursor: pointer;
+}
+.infoSection {
+  margin-top: 30px;
+}
+
+.label {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  background-color: #fafafa;
+  width: 100px;
+}
+
+.data {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  background-color: #ffffff;
+  width: 300px;
+}
+
+.introductionInput {
+  margin-bottom: 50px;
+  width: 440px;
+  height: 100px;
+}
+
+.edit {
+  border: none;
+  border-radius: 6px;
+  padding: 12px 40px;
+  margin: 0 12px;
+  background-color: lightskyblue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit:hover {
+  background-color: skyblue;
+  color: black;
+  cursor: pointer;
+}

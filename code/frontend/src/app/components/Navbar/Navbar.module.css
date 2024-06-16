@@ -1,10 +1,6 @@
-@font-face {
-  font-family: 'Hahmlet-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2')
-    format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+
+
 
 .navbar {
   position: fixed;
@@ -18,9 +14,9 @@
     rgba(255, 255, 255),
     rgba(235, 235, 235)
   );
-  z-index: 1000;
+  z-index: 100;
   display: flex;
-  font-family: 'Hahmlet-Regular';
+  font-family: "Stylish", serif;
   font-weight: 1000;
   font-size: 18px;
 }
@@ -97,12 +93,20 @@
   color: rgba(100, 100, 255, 0.9);
 }
 
-.p {
+.user {
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  line-height: 30px;
+  color: black;
+}
+
+.sign {
   color: black;
   text-decoration: none;
 }
 
-.p:hover {
+.sign:hover {
   color: rgba(100, 100, 255, 0.9);
 }
 
@@ -130,10 +134,14 @@
   left: 0;
 }
 
-.user {
-  width: 300px;
-  height: 80px;
-  text-align: center;
-  line-height: 30px;
-  color: black;
+/* .menu {
+  cursor: pointer;
 }
+.bar {
+  width: 50px;
+  height: 5px;
+  background-color: #555;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+} */
