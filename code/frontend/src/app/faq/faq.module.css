@@ -1,3 +1,10 @@
+.faqWrap {
+  display: flex;
+  flex-direction: column;
+  background: #f0f8ff;
+  min-height: 100vh;
+}
+
 .imageLayout {
   display: flex;
   justify-content: center;
