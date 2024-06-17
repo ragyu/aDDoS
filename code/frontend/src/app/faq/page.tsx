@@ -3,9 +3,9 @@ import Image from 'next/image';
 import FaqImage from '../../../public/assets/faq.png';
 import Accordion from '../components/Accordion/Accordion';
 
-function page() {
+export default function faq() {
   return (
-    <div>
+    <div className={styles.faqWrap}>
       <div className={styles.imageLayout}>
         <Image src={FaqImage} width={500} height={250} alt="FaqImage" />
       </div>
@@ -40,5 +40,3 @@ function page() {
     </div>
   );
 }
-
-export default page;
