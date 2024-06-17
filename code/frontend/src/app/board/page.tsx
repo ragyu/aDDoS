@@ -1,4 +1,5 @@
 import styles from '../board/board.module.css';
+import Button from '../components/Button/Button';
 
 interface Post {
   id: number;
@@ -66,7 +67,7 @@ const Board = () => {
           <span className={styles.likesRatio}>좋아요: {post.likes}</span>
         </li>
       ))}
-      <button className={styles.writeButton}>글쓰기</button>
+      <Button type="submit" text="글쓰기" />
     </div>
   );
 };
