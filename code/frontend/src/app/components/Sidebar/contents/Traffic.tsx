@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Traffic.module.css';
 
-const Graph = () => {
+type TrafficProps = {
+  setMaxValue: (value: number) => void;
+  setMinValue: (value: number) => void;
+  setAverageValue: (value: number) => void;
+};
+
+export default function Traffic({
+  setMaxValue,
+  setMinValue,
+  setAverageValue,
+}: TrafficProps) {
   const [timeInterval, setTimeInterval] = useState(5); // 시간 간격 (기본값: 5분)
   const [duration, setDuration] = useState(60); // 지속 시간 (기본값: 60분)
+  const [randomData, setRandomData] = useState<number[]>([]);
 
   const handleChangeTimeInterval = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -37,14 +48,33 @@ const Graph = () => {
     formatTime(new Date(endDate.getTime() - timeInterval * 60000 * i))
   );
 
-  // 랜덤 데이터 생성
-  const generateRandomData = () => {
-    return Array.from({ length: timesLength }, () =>
-      Math.floor(Math.random() * 101)
-    );
-  };
+  useEffect(() => {
+    // 랜덤 데이터 생성
+    const generateRandomData = () => {
+      return Array.from({ length: timesLength }, () =>
+        Math.floor(Math.random() * 101)
+      ).filter((value) => !isNaN(value));
+    };
 
-  const randomData = generateRandomData();
+    const newRandomData = generateRandomData();
+    setRandomData(newRandomData);
+
+    const maxValue = Math.max(...newRandomData);
+    const minValue = Math.min(...newRandomData);
+    const averageValue =
+      newRandomData.reduce((sum, val) => sum + val, 0) / newRandomData.length;
+
+    setMaxValue(maxValue);
+    setMinValue(minValue);
+    setAverageValue(averageValue);
+  }, [
+    timeInterval,
+    duration,
+    setMaxValue,
+    setMinValue,
+    setAverageValue,
+    timesLength,
+  ]);
 
   const a = times.length;
   const b = times.length > 1 ? 300 / (times.length - 1) : 0;
@@ -57,8 +87,8 @@ const Graph = () => {
   return (
     <div>
       <div className={styles.graph}>
-        <h1>트래픽</h1>
-        <svg viewBox="-110 -10 500 130" style={{ fontSize: '5px' }}>
+        <h3>그래프</h3>
+        <svg viewBox="-20 -5 340 120" style={{ fontSize: '5px' }}>
           {Array.from({ length: d }, (_, i) => (
             <React.Fragment key={`hline-${i}`}>
               <line
@@ -69,15 +99,14 @@ const Graph = () => {
                 stroke="#ccc"
                 strokeWidth="0.3"
               />
-              <text x="-5" y={102 - e * i} textAnchor="end">
+              <text key={`htext-${i}`} x="-5" y={102 - e * i} textAnchor="end">
                 {0 + 20 * i}
               </text>
             </React.Fragment>
           ))}
           {Array.from({ length: a }, (_, i) => (
-            <>
+            <React.Fragment key={`vline-${i}`}>
               <line
-                key={`vline-${i}`}
                 x1={b * i}
                 y1={100 - f}
                 x2={b * i}
@@ -85,24 +114,29 @@ const Graph = () => {
                 stroke="#ccc"
                 strokeWidth="0.3"
               />
-              {i < a - 1 && (
-                <line
-                  key={`line-${i}`}
-                  x1={b * i}
-                  y1={100 - randomData[i]}
-                  x2={b * (i + 1)}
-                  y2={100 - randomData[i + 1]}
-                  stroke="red"
-                  strokeWidth="0.8"
+              {i < a - 1 &&
+                !isNaN(randomData[i]) &&
+                !isNaN(randomData[i + 1]) && (
+                  <line
+                    key={`line-${i}`}
+                    x1={b * i}
+                    y1={100 - randomData[i]}
+                    x2={b * (i + 1)}
+                    y2={100 - randomData[i + 1]}
+                    stroke="red"
+                    strokeWidth="0.8"
+                  />
+                )}
+              {!isNaN(randomData[i]) && (
+                <circle
+                  key={`circle-${i}`}
+                  cx={b * i}
+                  cy={100 - randomData[i]}
+                  r="1.1"
+                  fill="red"
                 />
               )}
-              <circle
-                cx={b * i}
-                cy={100 - randomData[i]} // 랜덤 데이터 값을 y 좌표로 사용
-                r="1.1"
-                fill="red"
-              />
-            </>
+            </React.Fragment>
           ))}
           {times.reverse().map((time, i) => (
             <text
@@ -122,6 +156,7 @@ const Graph = () => {
           시간 간격 (분):
           <input
             type="number"
+            id="interval"
             value={timeInterval}
             onChange={handleChangeTimeInterval}
           />
@@ -131,14 +166,12 @@ const Graph = () => {
           표기 시간 (분):
           <input
             type="number"
+            id="duration"
             value={duration}
             onChange={handleChangeDuration}
           />
         </label>
-        {/* {b} */}
       </div>
     </div>
   );
-};
-
-export default Graph;
+}
