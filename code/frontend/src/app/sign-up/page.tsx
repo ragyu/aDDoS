@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from './sign-up.module.css';
+import Button from '../components/Button/Button';
 
-function Signup() {
+export default function signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -27,17 +29,41 @@ function Signup() {
     }
   }, [password, confirmPassword]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (passwordMismatch) {
       alert('비밀번호가 일치하지 않습니다.');
-      e.preventDefault();
       return;
     } else if (passwordInvalid) {
       alert(
         '비밀번호는 최소 8자 이상이어야 하며, 숫자와 영문자를 포함해야 합니다.'
       );
-      e.preventDefault();
       return;
+    }
+
+    try {
+      const response = await axios.post('http://43.201.89.72:8000/signup/', {
+        email,
+        password,
+        name,
+      });
+
+      if (response.status === 201) {
+        alert('회원가입이 완료되었습니다.');
+        // 회원가입 성공 시 추가 작업 (예: 로그인 페이지로 이동)
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        // AxiosError 타입인 경우에만 response에 접근
+        if (error.response) {
+          alert(error.response.data.error);
+        } else {
+          alert('회원가입 중 오류가 발생했습니다.');
+        }
+      } else {
+        alert('회원가입 중 오류가 발생했습니다.');
+      }
     }
   };
 
@@ -45,83 +71,75 @@ function Signup() {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1 className={styles.title}>회원가입</h1>
-        {/* 이메일 입력 필드 */}
-        <div className={styles.inputGroup}>
-          <label htmlFor="email">이메일</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="exemple@email.com"
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              console.log('이메일:', e.target.value);
-            }}
-          />
-        </div>
-        {/* 비밀번호 입력 필드 */}
-        <div className={styles.inputGroup}>
-          <div className={styles.verify}>
-            <label htmlFor="password">비밀번호</label>
-            {passwordInvalid && (
-              <p className={styles.invalid}>
-                비밀번호는 최소 8자 이상이어야 하며, 숫자와 영문자를 포함해야
-                합니다.
-              </p>
-            )}
+        <div className={styles.inputGroupWrap}>
+          {/* 이메일 입력 필드 */}
+          <div className={styles.inputGroup}>
+            <label htmlFor="email">이메일</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="exemple@email.com"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="비밀번호 입력"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        {/* 비밀번호 확인 필드 */}
-        <div className={styles.inputGroup}>
-          <div className={styles.verify}>
-            <label htmlFor="confirmPassword">비밀번호 확인</label>
-            {passwordMismatch && (
-              <p className={styles.mismatch}>비밀번호가 일치하지 않습니다.</p>
-            )}
+          {/* 비밀번호 입력 필드 */}
+          <div className={styles.inputGroup}>
+            <div className={styles.verify}>
+              <label htmlFor="password">비밀번호</label>
+              {passwordInvalid && (
+                <p className={styles.invalid}>
+                  비밀번호는 최소 8자 이상이어야 하며, 숫자와 영문자를 포함해야
+                  합니다.
+                </p>
+              )}
+            </div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="비밀번호 입력"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="비밀번호 재입력"
-            required
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+          {/* 비밀번호 확인 필드 */}
+          <div className={styles.inputGroup}>
+            <div className={styles.verify}>
+              <label htmlFor="confirmPassword">비밀번호 확인</label>
+              {passwordMismatch && (
+                <p className={styles.mismatch}>비밀번호가 일치하지 않습니다.</p>
+              )}
+            </div>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="비밀번호 재입력"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          {/* 이름 입력 필드 */}
+          <div className={styles.inputGroup}>
+            <label htmlFor="name">이름</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="이름을 입력해주세요"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
         </div>
-        {/* 이름 입력 필드 */}
-        <div className={styles.inputGroup}>
-          <label htmlFor="name">이름</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="이름을 입력해주세요"
-            required
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-              console.log('이름:', e.target.value);
-            }}
-          />
-        </div>
-        <button type="submit" className={styles.submitButton}>
-          가입하기
-        </button>
+        <Button type="submit" text="가입하기" />
       </form>
     </div>
   );
 }
-
-export default Signup;
