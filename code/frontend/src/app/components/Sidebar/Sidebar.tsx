@@ -2,10 +2,11 @@
 
 import React, { useState, useMemo } from 'react';
 import styles from './Sidebar.module.css';
-import Traffic from './contents/Traffic';
+// import Traffic from './contents/Traffic';
+import Dashboard from './contents/Dashboard';
 import Myinfo from './contents/Myinfo';
 
-type ActiveComponent = 'Traffic' | 'Myinfo'; //| null;
+type ActiveComponent = 'Dashboard' | 'Myinfo'; //| null;
 
 interface Button {
   id: ActiveComponent;
@@ -13,14 +14,15 @@ interface Button {
 }
 
 const buttons: Button[] = [
-  { id: 'Traffic', label: '트래픽' },
+  // { id: 'Traffic', label: '트래픽' },
+  { id: 'Dashboard', label: '대시보드' },
   { id: 'Myinfo', label: '내정보' },
 ];
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeComponent, setActiveComponent] =
-    useState<ActiveComponent>('Myinfo');
+    useState<ActiveComponent>('Dashboard');
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -32,83 +34,27 @@ export default function Sidebar() {
 
   const renderComponent = useMemo(() => {
     switch (activeComponent) {
-      case 'Traffic':
-        return <Traffic />;
+      // case 'Traffic':
+      //   return <Traffic />;
+      case 'Dashboard':
+        return <Dashboard />;
       case 'Myinfo':
         return <Myinfo />;
       default:
-        return <Myinfo />; // 기본값이거나 선택하지 않았을 때는 아무것도 렌더링하지 않습니다.
+        return <Dashboard />; // 기본값이거나 선택하지 않았을 때는 아무것도 렌더링하지 않습니다.
     }
   }, [activeComponent]);
 
   return (
     <div>
-      <svg
-        width="40"
-        height="100"
-        className={`${styles.menuButton} ${isOpen ? styles.sidebarOpen : ''}`}
+      <div
+        className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}
+        onClick={toggleSidebar}
       >
-        <path
-          d="M0,0 C0,15 40,10 40,50 S0,85 0,100"
-          stroke="black"
-          fill="#222222"
-          onClick={() => toggleSidebar()}
-        />
-        {isOpen ? (
-          // 사이드바가 열렸을 때 "<" 모양
-          <>
-            <line
-              x1="20"
-              y1="40"
-              x2="10"
-              y2="50"
-              stroke="white"
-              strokeWidth="5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              onClick={() => toggleSidebar()}
-            />
-            <line
-              x1="10"
-              y1="50"
-              x2="20"
-              y2="60"
-              stroke="white"
-              strokeWidth="5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              onClick={() => toggleSidebar()}
-            />
-          </>
-        ) : (
-          // 사이드바가 닫혔을 때 ">" 모양
-          <>
-            <line
-              x1="10"
-              y1="40"
-              x2="20"
-              y2="50"
-              stroke="white"
-              strokeWidth="5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              onClick={() => toggleSidebar()}
-            />
-            <line
-              x1="20"
-              y1="50"
-              x2="10"
-              y2="60"
-              stroke="white"
-              strokeWidth="5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              onClick={() => toggleSidebar()}
-            />
-          </>
-        )}
-        {/* <circle cx="0" cy="50" r="40" stroke="black" fill="transparent" /> */}
-      </svg>
+        <div className={`${styles.line1}`}></div>
+        <div className={`${styles.line2}`}></div>
+        <div className={`${styles.line3}`}></div>
+      </div>
       <div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
         {buttons.map((button) => (
           <button
