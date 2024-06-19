@@ -1,7 +1,8 @@
 import styles from './sign-in.module.css';
 import Link from 'next/link';
+import Button from '../components/Button/Button';
 
-function Signin() {
+export default function signin() {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
@@ -34,9 +35,7 @@ function Signin() {
         </div>
 
         <Link href="/mypage">
-          <button type="submit" className={styles.submitButton}>
-            로그인
-          </button>
+          <Button type="submit" text="로그인" />
         </Link>
 
         {/* 회원가입 링크 */}
@@ -61,5 +60,3 @@ function Signin() {
     </div>
   );
 }
-
-export default Signin;

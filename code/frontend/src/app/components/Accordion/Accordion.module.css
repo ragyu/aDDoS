@@ -1,6 +1,6 @@
 /* Accordion.module.css */
 .question {
-  background-color: #f0f8ff;
+  background-color: #d6e8ff;
   color: #00007b;
   padding: 10px 15px;
   margin: 5px 0;
@@ -23,7 +23,7 @@
 .answer.open {
   padding: 10px 15px;
   margin: 5px 0 10px 0;
-  max-height: 100px;
+  max-height: 1000px;
   transition: max-height 0.2s ease-in;
 }
 

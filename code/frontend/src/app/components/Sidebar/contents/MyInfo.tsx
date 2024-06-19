@@ -1,13 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Myinfo.module.css';
 import Image from 'next/image';
+// import Button from '../../Button/Button';
 
-function Myinfo() {
+export default function Myinfo() {
   const [image, setImage] = useState('/assets/user.png');
-  const [introduction, setIntroduction] =
-    useState('여기에 사용자 소개를 적어주세요.');
-  const [tempIntroduction, setTempIntroduction] = useState('');
+  // const [introduction, setIntroduction] =
+  //   useState('여기에 사용자 소개를 적어주세요.');
+  // const [tempIntroduction, setTempIntroduction] = useState('');
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -22,9 +23,9 @@ function Myinfo() {
     }
   };
 
-  const handleSubmitIntroduction = () => {
-    setIntroduction(tempIntroduction);
-  };
+  // const handleSubmitIntroduction = () => {
+  //   setIntroduction(tempIntroduction);
+  // };
 
   return (
     <div className={styles.container}>
@@ -60,33 +61,25 @@ function Myinfo() {
           <td className={styles.data}>UserName</td>
         </tr>
         <tr>
-          <td className={styles.label}>성별</td>{' '}
-          <td className={styles.data}>남성</td>
+          <td className={styles.label}>직책</td>
+          <td className={styles.data}>관리자</td>
         </tr>
         <tr>
-          <td className={styles.label}>전화번호</td>{' '}
-          <td className={styles.data}>010-1234-5678</td>
-        </tr>
-        <tr>
-          <td className={styles.label}>가입날짜</td>{' '}
-          <td className={styles.data}>2024-04-30</td>
-        </tr>
-        <tr>
-          <td className={styles.label}>소개</td>
-          <td className={styles.data}>{introduction}</td>
+          <td className={styles.label}>서버</td>
+          <td className={styles.data}>aDDoS.com</td>
         </tr>
       </table>
-      <textarea
+      {/* <textarea
         className={styles.introductionInput}
         placeholder="소개를 수정하세요."
         value={tempIntroduction}
         onChange={(e) => setTempIntroduction(e.target.value)}
       />
-      <button className={styles.edit} onClick={handleSubmitIntroduction}>
-        수정하기
-      </button>
+      <Button
+        type="submit"
+        text="수정하기"
+        onClick={handleSubmitIntroduction}
+      /> */}
     </div>
   );
 }
-
-export default Myinfo;

@@ -9,7 +9,6 @@
 }
 
 .section2 {
-  background: linear-gradient(to bottom right, #003366, #ffffff);
   background-size: contain;
   display: flex;
   align-items: center;
@@ -18,21 +17,18 @@
 }
 
 .section3 {
-  background: linear-gradient(to bottom right, #0066cc, #ffffff);
   background-size: contain;
   display: flex;
   height: 100vh;
 }
 
 .section4 {
-  background: linear-gradient(to bottom right, #0099ff, #ffffff);
   background-size: contain;
   height: 100vh;
   display: flex;
 }
 
 .section5 {
-  background: linear-gradient(to bottom right, #66b3ff, #ffffff);
   background-size: contain;
   height: 100vh;
   display: flex;

@@ -70,7 +70,7 @@ export default function Navbar() {
           </div>
         </li>
 
-        <li className={styles.dropdownWrapper}>
+        {/* <li className={styles.dropdownWrapper}>
           게시판
           <div className={styles.dropdownMenu}>
             <ul>
@@ -83,7 +83,7 @@ export default function Navbar() {
                 <Link href="#" className={styles.link}>
                   보안뉴스
                 </Link>
-              </li> */}
+              </li> 
               <li>
                 <Link href="/board" className={styles.link}>
                   자유게시판
@@ -91,7 +91,7 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-        </li>
+        </li> */}
 
         {/* <input className={styles.input} type="text" />
         <button className={styles.button}>

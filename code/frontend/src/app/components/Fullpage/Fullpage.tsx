@@ -11,7 +11,7 @@ interface Section {
   content: React.ReactNode;
 }
 
-const originalColors = ['#ff5f45', '#0798ec'];
+const originalColors = ['#ff5f45', '#003366', '#0066cc', '#0099ff', '#66b3ff'];
 
 type Credits = {
   enabled?: boolean;
@@ -29,6 +29,7 @@ const Fullpage = () => {
   const [sectionsColor, setSectionsColor] = useState([...originalColors]);
   const [fullpages, setFullpages] = useState<Section[]>([
     {
+      id: 1,
       content: (
         <div className={styles.section1}>
           <h1 className={styles.title}>aDDoS</h1>
@@ -37,6 +38,7 @@ const Fullpage = () => {
       ),
     },
     {
+      id: 2,
       content: (
         <div className={styles.section2}>
           <Service />
@@ -44,6 +46,7 @@ const Fullpage = () => {
       ),
     },
     {
+      id: 3,
       content: (
         <div className={styles.section3}>
           <Ability
@@ -55,6 +58,7 @@ const Fullpage = () => {
       ),
     },
     {
+      id: 4,
       content: (
         <div className={styles.section4}>
           <Ability
@@ -66,6 +70,7 @@ const Fullpage = () => {
       ),
     },
     {
+      id: 5,
       content: (
         <div className={styles.section5}>
           <Ability
@@ -77,6 +82,7 @@ const Fullpage = () => {
       ),
     },
     // {
+    //  id: 6,
     //   content: (
     //     <div className={styles.section6}>
     //       <YoutubeVideo videoId="0d8RS7xSXA0"></YoutubeVideo>
@@ -165,9 +171,11 @@ const Fullpage = () => {
         credits={credits}
         render={(comp: any) => (
           <ReactFullpage.Wrapper>
-            {fullpages.map(({ content }) => (
-              <div className="section">{content}</div>
-            ))}{' '}
+            {fullpages.map(({ id, content }) => (
+              <div key={id} className="section">
+                {content}
+              </div>
+            ))}
             <div className="section fp-auto-height">
               <div className={styles.section6}>
                 <Footer />

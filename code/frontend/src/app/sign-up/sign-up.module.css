@@ -20,8 +20,11 @@
 .title {
   color: #007bff;
   margin: 50px;
+  font-size: 40px;
 }
-
+.inputGroupWrap {
+  margin-bottom: 50px;
+}
 .inputGroup label {
   display: block;
   margin-bottom: 5px;

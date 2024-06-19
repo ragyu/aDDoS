@@ -23,7 +23,7 @@ const Member = ({
   background,
 }: MemberProps) => {
   const dynamicStyle = {
-    background: `linear-gradient(to bottom right, ${background})`,
+    background: `${background}`,
   };
 
   return (

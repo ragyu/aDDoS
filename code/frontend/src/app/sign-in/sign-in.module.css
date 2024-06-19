@@ -20,6 +20,7 @@
 .title {
   color: #007bff;
   margin: 75px;
+  font-size: 40px;
 }
 
 .input {
@@ -37,6 +38,7 @@
 
 .remember {
   margin-right: 100px;
+  margin-bottom: 50px;
 }
 
 .remember input {

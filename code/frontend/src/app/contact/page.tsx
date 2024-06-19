@@ -1,15 +1,14 @@
-import React from 'react';
 import styles from './contact.module.css';
+import Button from '../components/Button/Button';
 
-function page() {
-  const TEXTAREA_COLS = 60;
+export default function contact() {
+  const TEXTAREA_COLS = 45;
   const TEXTAREA_ROWS = 10;
 
   return (
     <div className={styles.contactWrap}>
-      <div className={styles.contact}>
-        <h2>문의하기</h2>
-      </div>
+      <h2 className={styles.title}>문의하기</h2>
+
       <div className={styles.form}>
         <form action="#">
           {/* <div className={styles.formGroup}>
@@ -26,31 +25,35 @@ function page() {
             <span>
               이름 <b className={styles.red}>*</b>
             </span>
-            <input type="text" />
+            <input className={styles.inputField} type="text" />
           </div>
           <div className={styles.formGroup}>
             <span>
               연락처 <b className={styles.red}>*</b>
             </span>
-            <input type="text" />
+            <input className={styles.inputField} type="text" />
           </div>
           <div className={styles.formGroup}>
             <span>
               이메일 <b className={styles.red}>*</b>
             </span>
-            <input type="text" />
+            <input className={styles.inputField} type="text" />
           </div>
           <div className={styles.formGroup}>
             <span>
               제목 <b className={styles.red}>*</b>
             </span>
-            <input type="text" />
+            <input className={styles.inputField} type="text" />
           </div>
           <div className={styles.formGroup}>
             <span>
               문의내용 <b className={styles.red}>*</b>
             </span>
-            <textarea cols={TEXTAREA_COLS} rows={TEXTAREA_ROWS}></textarea>
+            <textarea
+              className={styles.textareaField}
+              cols={TEXTAREA_COLS}
+              rows={TEXTAREA_ROWS}
+            ></textarea>
           </div>
           <div className={styles.formGroup}>
             <span>
@@ -93,11 +96,8 @@ function page() {
         </div>
       </div>
       <div className={styles.buttonWrap}>
-        {/* <button className={styles.firstBtn}>취소</button> */}
-        <button className={styles.secondBtn}>등록</button>
+        <Button type="submit" text="등록" />
       </div>
     </div>
   );
 }
-
-export default page;
