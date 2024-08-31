@@ -5,6 +5,8 @@ import styles from './Sidebar.module.css';
 // import Traffic from './contents/Traffic';
 import Dashboard from './contents/Dashboard';
 import Myinfo from './contents/Myinfo';
+import { SlGraph } from 'react-icons/sl';
+import { CgProfile } from 'react-icons/cg';
 
 type ActiveComponent = 'Dashboard' | 'Myinfo'; //| null;
 
@@ -62,7 +64,10 @@ export default function Sidebar() {
             onClick={() => changeComponent(button.id)}
             className={styles.sidebarLink}
           >
-            <span className={styles.icon}>&#9672;</span>
+            <span className={styles.icon}>
+              {button.id === 'Dashboard' && <SlGraph />}
+              {button.id === 'Myinfo' && <CgProfile />}
+            </span>
             {button.label}
           </button>
         ))}
