@@ -9,7 +9,7 @@ export default function signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [name, setName] = useState('');
+  const [ip, setIp] = useState('');
   const [passwordMismatch, setPasswordMismatch] = useState(false);
   const [passwordInvalid, setPasswordInvalid] = useState(false);
 
@@ -46,7 +46,7 @@ export default function signup() {
       const response = await axios.post('http://43.201.89.72:8000/signup/', {
         email,
         password,
-        name,
+        ip,
       });
 
       if (response.status === 201) {
@@ -126,15 +126,15 @@ export default function signup() {
           </div>
           {/* 이름 입력 필드 */}
           <div className={styles.inputGroup}>
-            <label htmlFor="name">이름</label>
+            <label htmlFor="ip">ip</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              placeholder="이름을 입력해주세요"
+              id="ip"
+              name="ip"
+              placeholder="ip를 입력해주세요"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={ip}
+              onChange={(e) => setIp(e.target.value)}
             />
           </div>
         </div>
