@@ -1,9 +1,12 @@
+import { auth, signOut } from '@/auth';
 import styles from './Navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 // import { FaSearch } from 'react-icons/fa';
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth();
+
   return (
     <nav className={styles.navbar}>
       <h1 className={styles.logo}>
@@ -70,7 +73,7 @@ export default function Navbar() {
           </div>
         </li>
 
-        {/* <li className={styles.dropdownWrapper}>
+        <li className={styles.dropdownWrapper}>
           게시판
           <div className={styles.dropdownMenu}>
             <ul>
@@ -83,30 +86,53 @@ export default function Navbar() {
                 <Link href="#" className={styles.link}>
                   보안뉴스
                 </Link>
-              </li> 
-              <li>
+              </li>
+              */}
+              {/* <li>
                 <Link href="/board" className={styles.link}>
                   자유게시판
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
-        </li> */}
+        </li>
 
         {/* <input className={styles.input} type="text" />
         <button className={styles.button}>
           <FaSearch size={26} />
         </button> */}
       </ul>
-      <h3 className={styles.user}>
-        <Link href="/sign-in" className={styles.sign}>
-          로그인
-        </Link>
-        <b className={styles.b}>/</b>
-        <Link href="/sign-up" className={styles.sign}>
-          회원가입
-        </Link>
-      </h3>
+      {session ? (
+        <>
+          <h3 className={styles.user}>
+            <Link href="/mypage" className={styles.sign}>
+              마이페이지
+            </Link>
+            <b className={styles.b}>/</b>
+            <form
+              className={styles.form}
+              action={async () => {
+                'use server';
+                await signOut();
+              }}
+            >
+              <button className={styles.logout} type="submit">
+                로그아웃
+              </button>
+            </form>
+          </h3>
+        </>
+      ) : (
+        <h3 className={styles.user}>
+          <Link href="/sign-in" className={styles.sign}>
+            로그인
+          </Link>
+          <b className={styles.b}>/</b>
+          <Link href="/sign-up" className={styles.sign}>
+            회원가입
+          </Link>
+        </h3>
+      )}
     </nav>
   );
 }
