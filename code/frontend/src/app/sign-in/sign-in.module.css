@@ -7,14 +7,20 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 400px;
   height: 600px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 255, 0.2);
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -85,4 +91,27 @@
 
 .sign:hover {
   color: rgba(100, 100, 255, 0.9);
+}
+
+.google {
+  cursor: pointer;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  width: 220px;
+  padding: 5px;
+}
+
+.google:hover {
+  background-color: #f0f0f0;
+}
+
+.icon {
+  font-size: 22px;
+  margin-right: 10px;
 }
