@@ -1,0 +1,57 @@
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropdownTitle {
+  margin-left: 50px;
+}
+.dropdownToggle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  background: #3498db;
+  border: 3px solid #3498db;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.Toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  height: 41px;
+  margin: auto;
+  margin-right: 10px;
+}
+
+.dropdownToggle div {
+  width: 35px;
+  height: 4px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.dropdownMenu {
+  display: block;
+  position: absolute;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 65px;
+  right: 0px;
+}
+
+.dropdownMenu label {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdownMenu label:hover {
+  background-color: #f1f1f1;
+}
