@@ -17,11 +17,12 @@
   font-size: 40px;
   color: #007bff;
 }
+
 .infoRow {
   display: flex;
   justify-content: center;
-  border-top: 1px solid #5c52b9;
-  border-bottom: 1px solid #5c52b9;
+  background: #5c52b9;
+  color: #ffffff;
 }
 
 .infoItem {
@@ -42,35 +43,5 @@
 }
 
 .infoItem:last-child {
-  width: 60%;
-}
-
-.infoBottom {
-  display: flex;
-  border-bottom: 1px solid #bdbdc2;
-}
-
-.infoData {
-  display: flex;
-  margin: 20px 10px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-}
-.infoData:first-child {
-  width: 30%;
-}
-
-.infoData:nth-child(2) {
-  width: 100%;
-}
-
-.infoData:nth-child(3) {
-  width: 30%;
-}
-
-.infoData:last-child {
   width: 60%;
 }

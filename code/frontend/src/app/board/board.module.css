@@ -49,17 +49,17 @@
 }
 
 .idRatio {
-  width: 5%;
+  width: 30%;
 }
 
 .titleRatio {
-  width: 40%;
+  width: 100%;
 }
 .authorRatio {
-  width: 16%;
+  width: 30%;
 }
 .createdAtRatio {
-  width: 30%;
+  width: 60%;
 }
 .likesRatio {
   width: 30%;
