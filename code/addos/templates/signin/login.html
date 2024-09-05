@@ -1,0 +1,21 @@
+<!-- 
+ 
+templates/signin/login.html 
+csrf token, pbkdf2_sha256 방식 암호화
+
+-->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
+{% endblock %}
