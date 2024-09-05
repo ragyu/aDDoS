@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sitdu%yzk_r0e8*)!8w7mf=h2!$4qc)2=*o*1(ih!51pr%2t)b'
+SECRET_KEY = '#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,9 +86,9 @@ DATABASES = {
         'NAME': 'database',  # 클러스터 이름
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://root:XGol9qjhYRpsPCY4@database.qlcdexd.mongodb.net/',
-            'username': 'root',  # MongoDB Atlas에서 설정한 사용자 이름.
-            'password': 'XGol9qjhYRpsPCY4',  # MongoDB Atlas에서 설정한 비밀번호
+            'host': '#',
+            'username': '#',  # MongoDB Atlas에서 설정한 사용자 이름.
+            'password': '#',  # MongoDB Atlas에서 설정한 비밀번호
             'authSource': 'admin',
             'authMechanism': 'SCRAM-SHA-1'  # 인증 방식 설정 (필요시)
         }
