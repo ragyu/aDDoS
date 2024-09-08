@@ -1,0 +1,14 @@
+<!-- templates/signin/signup.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Sign Up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button type="submit">Sign Up</button>
+    </div>
+  </form>
+{% endblock %}
