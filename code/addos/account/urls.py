@@ -15,7 +15,6 @@ from signin.views import signin_redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signin/', signin_redirect), # signin/ 경로로 접속하면 signin_redirect 뷰로 이동(login 페이지로 리디렉션)
-    path('signin/', include('signin.urls')),
-    
+    path('signin/', include('signin.urls')), # signin 앱의 url 포함
+    path('', signin_redirect), # 루트 URL로 접속하면 signin_redirect 뷰로 이동
 ]

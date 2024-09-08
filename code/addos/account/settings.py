@@ -11,8 +11,6 @@
 """
 
 from pathlib import Path
-import os
-from pymongo import MongoClient
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     
     # 추가한 앱
     'signin',
@@ -83,13 +80,11 @@ WSGI_APPLICATION = 'account.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'database',  # 클러스터 이름
-        'ENFORCE_SCHEMA': False,
+        'NAME': '#',  # 클러스터 이름
         'CLIENT': {
             'host': '#',
             'username': '#',  # MongoDB Atlas에서 설정한 사용자 이름.
             'password': '#',  # MongoDB Atlas에서 설정한 비밀번호
-            'authSource': 'admin',
             'authMechanism': 'SCRAM-SHA-1'  # 인증 방식 설정 (필요시)
         }
     }
@@ -137,7 +132,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# 인증에 사용되는 User Model 지정
+# 읹ㅇ에 사용되는 User Model 지정
 AUTH_USER_MODEL = 'signin.CustomUser'
 
 # 로그인 후 리다이렉트할 URL 설정

@@ -24,7 +24,7 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
     
-    return render(request, '../signin/login.html', {'form': form})
+    return render(request, 'signin/signup.html', {'form': form})
 
 
 
@@ -34,7 +34,7 @@ def signup(request):
 
 class CustomLoginView(LoginView):
     form_class = EmailLoginForm  # 이메일 기반 로그인 폼을 사용
-    template_name = '../signin/login.html'  # 사용할 템플릿 경로 지정
+    template_name = 'signin/login.html'  # 사용할 템플릿 경로 지정
 
 # 로그인 페이지로 리디렉션하는 간단한 뷰
 def signin_redirect(request):
