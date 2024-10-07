@@ -41,7 +41,7 @@ const Ability = ({ src, alt, description }: AbilityProps) => {
       className={`${styles.ability} ${isVisible ? styles.animate : ''}`}
     >
       <div className={styles.image}>
-        <Image src={src} alt={alt} fill priority />
+        <Image src={src} alt={alt} fill priority sizes="100vh" />
       </div>
       <div className={styles.description}>{description}</div>
     </div>
